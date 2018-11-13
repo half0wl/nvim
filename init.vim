@@ -10,9 +10,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'valloric/MatchTagAlways'
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi-vim'
+Plug 'zxqfl/tabnine-vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tmhedberg/SimpylFold'
 Plug 'pangloss/vim-javascript'
@@ -86,11 +86,11 @@ com Fmtjson :%!jq .
 let g:vim_json_syntax_conceal = 0
 
 " deoplete settings
-let g:deoplete#enable_at_startup = 1
-set completeopt-=preview " don't open preview window
+"let g:deoplete#enable_at_startup = 1
 
 " jedi-vim settings
-let g:jedi#completions_enabled = 0 " we're using deoplete for completions
+set completeopt-=preview " don't open preview window
+let g:jedi#completions_enabled = 1
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
