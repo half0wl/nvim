@@ -10,13 +10,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'valloric/MatchTagAlways'
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'davidhalter/jedi-vim'
-Plug 'zxqfl/tabnine-vim'
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'tmhedberg/SimpylFold'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'elmcast/elm-vim'
 call plug#end()
@@ -37,6 +35,7 @@ set noswapfile
 set colorcolumn=80
 set laststatus=2
 set updatetime=100
+set signcolumn=yes
 
 " Key mappings
 let mapleader=","
@@ -47,12 +46,14 @@ nnoremap <leader>t :Files<CR>
 nnoremap <leader>; :NERDTreeToggle<CR>
 nnoremap <leader>h :noh<CR>
 
-" Use ripgrep for fzf
-let $FZF_DEFAULT_COMMAND = 'rg --files'
-
 " Paths for neovim Python providers
 let g:python_host_prog=$HOME."/.neovim-pyenv/py2/bin/python"
 let g:python3_host_prog=$HOME."/.neovim-pyenv/py3/bin/python"
+
+" Assorted plugin settings
+let $FZF_DEFAULT_COMMAND = 'rg --files' " Use ripgrep for fzf.
+let g:vim_json_syntax_conceal = 0
+let g:indentLine_char = '┆'
 
 " Tab width (4 spaces by default for all filetypes)
 set expandtab
@@ -63,8 +64,13 @@ set shiftwidth=4
 " Filetype specific tab width
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype typescript setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype typescript.tsx setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 sts=4 expandtab
 autocmd Filetype go setlocal ts=4 sw=4 sts=0  " use tabs for Go
+
+" Commands
+com Fmtjson :%!jq . " Format json with `jq`.
 
 " Trim whitespace from file on write
 fun! TrimWhitespace()
@@ -74,23 +80,26 @@ fun! TrimWhitespace()
 endfun
 autocmd BufWritePre * :call TrimWhitespace()
 
-" Code folding
-set foldlevelstart=1
-let g:SimpylFold_fold_docstring = 0
-let g:SimpylFold_docstring_preview = 1
+" Linting/completions
+set completeopt-=preview " Don't open preview window.
+let g:ale_completion_enabled = 0 " Don't use ale's completion.
+let g:nvim_typescript#diagnostics_enable=0 " Use ale for linting TS.
+let g:deoplete#enable_at_startup = 1
 
-" Format json with `jq`
-com Fmtjson :%!jq .
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_linters_explicit = 1 " Only run linters defined in `ale_linters`.
+let g:ale_linters = {
+\   'python': ['flake8'],
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver'],
+\   'typescript.tsx': ['tsserver'],
+\   'php': ['phpcs', 'phpstan'],
+\}
 
-" vim-json settings
-let g:vim_json_syntax_conceal = 0
+let g:ale_php_phpstan_executable = "vendor/bin/phpstan"
+let g:ale_php_phpstan_level = "7"
 
-" deoplete settings
-"let g:deoplete#enable_at_startup = 1
-
-" jedi-vim settings
-set completeopt-=preview " don't open preview window
-let g:jedi#completions_enabled = 1
+let g:jedi#completions_enabled = 0
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
@@ -99,18 +108,7 @@ let g:jedi#goto_command = ""
 let g:jedi#goto_definitions_command = ""
 let g:jedi#completions_command = ""
 
-" indentLine settings
-let g:indentLine_char = '┆'
-
-" ale settings
-let g:ale_linters = {
-\   'python': ['flake8'],
-\   'javascript': ['eslint'],
-\}
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_completion_enabled = 1
-
-" vim-airline settings
+" vim-airline
 let g:airline_theme='bubblegum'
 let g:airline#extensions#ale#enabled = 1
 let g:airline_mode_map = {
