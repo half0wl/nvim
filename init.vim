@@ -46,6 +46,9 @@ nnoremap <leader>t :Files<CR>
 nnoremap <leader>; :NERDTreeToggle<CR>
 nnoremap <leader>h :noh<CR>
 
+" Recursively search files with ripgrep.
+nnoremap <leader>s :Rg<CR>
+
 " Paths for neovim Python providers
 let g:python_host_prog=$HOME."/.neovim-pyenv/py2/bin/python"
 let g:python3_host_prog=$HOME."/.neovim-pyenv/py3/bin/python"
