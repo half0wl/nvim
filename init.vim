@@ -57,6 +57,7 @@ let g:python3_host_prog=$HOME."/.neovim-pyenv/py3/bin/python"
 let $FZF_DEFAULT_COMMAND = 'rg --files' " Use ripgrep for fzf.
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_char = '┆'
+let NERDSpaceDelims=1
 
 " Tab width (4 spaces by default for all filetypes)
 set expandtab
