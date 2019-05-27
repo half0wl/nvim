@@ -75,7 +75,8 @@ autocmd Filetype html setlocal ts=2 sw=2 sts=4 expandtab
 autocmd Filetype go setlocal ts=4 sw=4 sts=0  " use tabs for Go
 
 " Commands
-command Fmtjson :%!jq '.' " Format json with `jq`.
+" Format json with `jq`
+command Fmtjson :%!jq '.'
 
 " Trim whitespace from file on write
 fun! TrimWhitespace()
