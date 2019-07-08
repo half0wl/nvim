@@ -102,6 +102,7 @@ let g:ale_linters = {
 \   'typescript': ['tsserver'],
 \   'typescript.tsx': ['tsserver'],
 \   'php': ['phpcs', 'phpstan'],
+\   'go': ['golint', 'govet'],
 \}
 
 let g:ale_php_phpstan_executable = "vendor/bin/phpstan"
