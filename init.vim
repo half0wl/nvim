@@ -17,6 +17,7 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'davidhalter/jedi-vim'
 Plug 'elzr/vim-json'
 Plug 'elmcast/elm-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " Basic settings
