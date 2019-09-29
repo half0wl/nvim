@@ -18,6 +18,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'elzr/vim-json'
 Plug 'elmcast/elm-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 " Basic settings
@@ -116,6 +117,11 @@ let g:jedi#documentation_command = "K"
 let g:jedi#goto_command = ""
 let g:jedi#goto_definitions_command = ""
 let g:jedi#completions_command = ""
+
+" Uncomment to auto-run prettier on save.
+" vim-prettier
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 " vim-airline
 let g:airline_theme='bubblegum'
