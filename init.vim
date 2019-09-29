@@ -116,6 +116,7 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#documentation_command = "K"
 let g:jedi#goto_command = ""
 let g:jedi#goto_definitions_command = ""
+let g:jedi#goto_stubs_command = ""
 let g:jedi#completions_command = ""
 
 " Uncomment to auto-run prettier on save.
