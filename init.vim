@@ -15,7 +15,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'davidhalter/jedi-vim'
 Plug 'elzr/vim-json'
-Plug 'elmcast/elm-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
