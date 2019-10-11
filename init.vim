@@ -36,6 +36,7 @@ set colorcolumn=80
 set laststatus=2
 set updatetime=100
 set signcolumn=yes
+set cmdheight=3
 
 " Key mappings
 let mapleader=","
