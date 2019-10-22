@@ -12,8 +12,9 @@ Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'davidhalter/jedi-vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -59,6 +60,7 @@ let $FZF_DEFAULT_COMMAND = 'rg --files' " Use ripgrep for fzf.
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_char = '┆'
 let NERDSpaceDelims=1
+let g:gutentags_generate_on_write=0
 
 " Tab width (4 spaces by default for all filetypes)
 set expandtab
