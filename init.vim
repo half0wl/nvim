@@ -52,8 +52,8 @@ nnoremap <leader>h :noh<CR>
 nnoremap <leader>s :Rg<CR>
 
 " Paths for neovim Python providers
-let g:python_host_prog=$HOME."/.neovim-pyenv/py2/bin/python"
-let g:python3_host_prog=$HOME."/.neovim-pyenv/py3/bin/python"
+let g:python_host_prog=$HOME."/.pyenv/versions/nvim-py2-provider/bin/python"
+let g:python3_host_prog=$HOME."/.pyenv/versions/nvim-py3-provider/bin/python"
 
 " Assorted plugin settings
 let $FZF_DEFAULT_COMMAND = 'rg --files' " Use ripgrep for fzf.
