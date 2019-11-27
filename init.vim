@@ -12,7 +12,7 @@ Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'davidhalter/jedi-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'elzr/vim-json'
@@ -72,6 +72,7 @@ set shiftwidth=4
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype typescript setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype typescriptreact setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype typescript.tsx setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype json setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype css setlocal ts=2 sw=2 sts=2 expandtab
@@ -102,6 +103,7 @@ let g:ale_linters = {
 \   'python': ['flake8'],
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver'],
+\   'typescriptreact': ['tsserver'],
 \   'typescript.tsx': ['tsserver'],
 \   'php': ['phpcs', 'phpstan'],
 \   'go': ['golint', 'govet'],
