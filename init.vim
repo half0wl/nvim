@@ -18,6 +18,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
 
 " Basic settings
@@ -100,7 +101,7 @@ let g:deoplete#enable_at_startup = 1
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_linters_explicit = 1 " Only run linters defined in `ale_linters`.
 let g:ale_linters = {
-\   'python': ['flake8'],
+\   'python': ['flake8', 'mypy'],
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver'],
 \   'typescriptreact': ['tsserver'],
