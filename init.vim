@@ -19,6 +19,7 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'StanAngeloff/php.vim'
 call plug#end()
 
 " Basic settings
