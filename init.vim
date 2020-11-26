@@ -1,5 +1,6 @@
 set rtp+=/usr/local/opt/fzf
 call plug#begin('~/.config/nvim/plugged')
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
