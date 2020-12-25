@@ -101,6 +101,7 @@ let g:ale_completion_enabled = 0 " Don't use ale's completion.
 let g:nvim_typescript#diagnostics_enable=0 " Use ale for linting TS.
 let g:deoplete#enable_at_startup = 1
 
+let g:ale_echo_msg_format = '%linter% :: %s'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_linters_explicit = 1 " Only run linters defined in `ale_linters`.
 let g:ale_linters = {
