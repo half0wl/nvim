@@ -21,6 +21,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'StanAngeloff/php.vim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " Basic settings
@@ -110,7 +111,11 @@ let g:ale_linters = {
 \   'typescript.tsx': ['tsserver'],
 \   'php': ['phpcs', 'phpstan'],
 \   'go': ['golint', 'govet'],
+\   'rust': ['cargo', 'analyzer'],
 \}
+let g:ale_fixers = {
+\   'rust': ['rustfmt'],
+\ }
 
 let g:ale_php_phpstan_executable = "vendor/bin/phpstan"
 let g:ale_php_phpstan_level = "7"
