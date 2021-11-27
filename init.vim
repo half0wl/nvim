@@ -6,20 +6,20 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'valloric/MatchTagAlways'
 Plug 'Yggdroot/indentLine'
-" Autocomplete
-Plug 'w0rp/ale'
 " UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 " Language tooling & plugins
+Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Language-specific tooling & plugins
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'psf/black', { 'branch': 'stable' }
-" Languages
-Plug 'davidhalter/jedi-vim'
-Plug 'elzr/vim-json'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Languages
+Plug 'elzr/vim-json'
 Plug 'StanAngeloff/php.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'HerringtonDarkholme/yats.vim'
