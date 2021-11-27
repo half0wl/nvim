@@ -1,8 +1,11 @@
 set rtp+=/usr/local/opt/fzf
 call plug#begin('~/.config/nvim/plugged')
-" Editor
+" Tooling
+Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Editor helpers
 Plug 'scrooloose/nerdcommenter'
 Plug 'valloric/MatchTagAlways'
 Plug 'Yggdroot/indentLine'
@@ -11,14 +14,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
-" Language tooling & plugins
-Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Language-specific tooling & plugins
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Languages
+" Languages (syntaxes, ...)
 Plug 'elzr/vim-json'
 Plug 'StanAngeloff/php.vim'
 Plug 'rust-lang/rust.vim'
