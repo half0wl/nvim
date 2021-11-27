@@ -141,7 +141,7 @@ fun! TrimWhitespace()
 endfun
 
 " K (shift+k) show documentation in preview window
-fun! ShowDocumentation()
+fun! s:ShowDocumentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
