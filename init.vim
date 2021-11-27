@@ -52,9 +52,8 @@ nnoremap <leader>D "_dd
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>; :NERDTreeToggle<CR>
 nnoremap <leader>h :noh<CR>
-
-" Recursively search files with ripgrep.
 nnoremap <leader>s :Rg<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Paths for neovim Python providers
 let g:python_host_prog=$HOME."/.pyenv/versions/nvim-py2-provider/bin/python"
@@ -71,6 +70,15 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+" K (shift+k) show documentation in preview window
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Filetype specific tab width
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
@@ -96,20 +104,11 @@ endfun
 autocmd BufWritePre * :call TrimWhitespace()
 
 " Linting/completions
-set completeopt-=preview " Don't open preview window.
-let g:ale_completion_enabled = 0 " Don't use ale's completion.
-let g:nvim_typescript#diagnostics_enable=0 " Use ale for linting TS.
-let g:deoplete#enable_at_startup = 1
-
+let g:ale_completion_enabled = 0  " Disable ale completion
 let g:ale_echo_msg_format = '%linter% :: %s'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_linters_explicit = 1 " Only run linters defined in `ale_linters`.
+let g:ale_linters_explicit = 1  " Only run linters defined in `ale_linters`
 let g:ale_linters = {
-\   'python': ['flake8', 'mypy'],
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver'],
-\   'typescriptreact': ['tsserver'],
-\   'typescript.tsx': ['tsserver'],
 \   'php': ['phpcs', 'phpstan'],
 \   'go': ['golint', 'govet'],
 \   'rust': ['cargo', 'analyzer'],
@@ -118,21 +117,11 @@ let g:ale_fixers = {
 \   'rust': ['rustfmt'],
 \ }
 
+" PHPStan
 let g:ale_php_phpstan_executable = "vendor/bin/phpstan"
-let g:ale_php_phpstan_level = "7"
+let g:ale_php_phpstan_level = "8"
 
-let g:jedi#completions_enabled = 0
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#documentation_command = "K"
-let g:jedi#goto_command = ""
-let g:jedi#goto_definitions_command = ""
-let g:jedi#goto_stubs_command = ""
-let g:jedi#completions_command = ""
-
-" Uncomment to auto-run prettier on save.
-" vim-prettier
+" Auto-run `prettier` on save. Uncomment to enable:
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
