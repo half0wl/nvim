@@ -25,7 +25,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
 
-" Basic settings
+" -----------------------------------------------------------------------------
+" Basics
+" -----------------------------------------------------------------------------
 syntax on
 colorscheme ayu
 set termguicolors
@@ -44,41 +46,11 @@ set updatetime=100
 set signcolumn=yes
 set cmdheight=3
 
-" Key mappings
-let mapleader=","
-nnoremap ; :Buffers<CR>
-nnoremap <leader>d dd
-nnoremap <leader>D "_dd
-nnoremap <leader>t :Files<CR>
-nnoremap <leader>; :NERDTreeToggle<CR>
-nnoremap <leader>h :noh<CR>
-nnoremap <leader>s :Rg<CR>
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Paths for neovim Python providers
-let g:python_host_prog=$HOME."/.pyenv/versions/nvim-py2-provider/bin/python"
-let g:python3_host_prog=$HOME."/.pyenv/versions/nvim-py3-provider/bin/python"
-
-" Assorted plugin settings
-let $FZF_DEFAULT_COMMAND = 'rg --files' " Use ripgrep for fzf.
-let g:vim_json_syntax_conceal = 0
-let g:indentLine_char = '┆'
-let NERDSpaceDelims=1
-
 " Tab width (4 spaces by default for all filetypes)
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
-" K (shift+k) show documentation in preview window
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " Filetype specific tab width
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
@@ -91,17 +63,34 @@ autocmd Filetype css setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 sts=4 expandtab
 autocmd Filetype go setlocal ts=4 sw=4 sts=0  " use tabs for Go
 
-" Commands
-" Format json with `jq`
-command Fmtjson :%!jq '.'
+" Paths for neovim Python providers
+let g:python_host_prog=$HOME."/.pyenv/versions/nvim-py2-provider/bin/python"
+let g:python3_host_prog=$HOME."/.pyenv/versions/nvim-py3-provider/bin/python"
 
-" Trim whitespace from file on write
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-autocmd BufWritePre * :call TrimWhitespace()
+" Workaround for paste issue
+" https://github.com/neovim/neovim/issues/7994
+au InsertLeave * set nopaste
+
+" -----------------------------------------------------------------------------
+" Keymaps
+" -----------------------------------------------------------------------------
+let mapleader=","
+nnoremap ; :Buffers<CR>
+nnoremap <leader>d dd
+nnoremap <leader>D "_dd
+nnoremap <leader>t :Files<CR>
+nnoremap <leader>; :NERDTreeToggle<CR>
+nnoremap <leader>h :noh<CR>
+nnoremap <leader>s :Rg<CR>
+nnoremap <silent> K :call <SID>ShowDocumentation()<CR>
+
+" -----------------------------------------------------------------------------
+" Plugin configuration
+" -----------------------------------------------------------------------------
+let $FZF_DEFAULT_COMMAND = 'rg --files'
+let g:vim_json_syntax_conceal = 0
+let g:indentLine_char = '┆'
+let NERDSpaceDelims=1
 
 " Linting/completions
 let g:ale_completion_enabled = 0  " Disable ale completion
@@ -122,10 +111,6 @@ let g:ale_fixers = {
 let g:ale_php_phpstan_executable = "vendor/bin/phpstan"
 let g:ale_php_phpstan_level = "8"
 
-" Auto-run `prettier` on save. Uncomment to enable:
-" let g:prettier#autoformat = 0
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
-
 " vim-airline
 let g:airline_theme='bubblegum'
 let g:airline#extensions#ale#enabled = 1
@@ -144,6 +129,32 @@ let g:airline_mode_map = {
   \ 't'  : 'T',
   \ }
 
-" Workaround for paste issue
-" https://github.com/neovim/neovim/issues/7994
-au InsertLeave * set nopaste
+" -----------------------------------------------------------------------------
+" Definitions
+" -----------------------------------------------------------------------------
+
+" Trim whitespace from file on write
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+" K (shift+k) show documentation in preview window
+fun! ShowDocumentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfun
+
+" -----------------------------------------------------------------------------
+" Commands
+" -----------------------------------------------------------------------------
+command Fmtjson :%!jq '.'
+autocmd BufWritePre * :call TrimWhitespace()
+
+" Auto-run `prettier` on save. Uncomment to enable:
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
