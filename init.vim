@@ -58,6 +58,7 @@ autocmd Filetype typescript setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype typescriptreact setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype typescript.tsx setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype json setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType json syntax match Comment +\/\/.\+$+  " jsonc
 autocmd Filetype css setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype html setlocal ts=2 sw=2 sts=4 expandtab
 autocmd Filetype go setlocal ts=4 sw=4 sts=0  " use tabs for Go
