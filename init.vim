@@ -51,6 +51,14 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+" Folding
+" @TODO Needs additional testing. Fold-by-indent is probably easiest to
+" start with.
+" @NOTE Use `nofoldenable` to skip folding new files on open.
+" set foldmethod=indent
+" set foldlevel=1
+" set foldnestmax=10
+
 " Filetype specific tab width
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
