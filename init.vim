@@ -20,7 +20,6 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Languages (syntaxes, ...)
 Plug 'elzr/vim-json'
-Plug 'StanAngeloff/php.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
