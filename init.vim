@@ -90,6 +90,7 @@ nnoremap <leader>t :Files<CR>
 nnoremap <leader>; :NERDTreeToggle<CR>
 nnoremap <leader>h :noh<CR>
 nnoremap <leader>s :Rg<CR>
+nnoremap <leader>c :CocCommand<CR>
 nnoremap <silent> K :call <SID>ShowDocumentation()<CR>
 
 " -----------------------------------------------------------------------------
