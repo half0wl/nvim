@@ -1,4 +1,5 @@
 {
   "phpactor.enable": true,
-  "phpactor.path": "/usr/local/bin/phpactor"
+  "phpactor.path": "/usr/local/bin/phpactor",
+  "metals.javaHome": "/opt/homebrew/opt/openjdk"
 }
