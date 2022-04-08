@@ -5,6 +5,7 @@ Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'github/copilot.vim'
 " Editor helpers
 Plug 'scrooloose/nerdcommenter'
 Plug 'valloric/MatchTagAlways'
