@@ -1,5 +1,11 @@
 {
   "phpactor.enable": true,
   "phpactor.path": "/usr/local/bin/phpactor",
-  "metals.javaHome": "/opt/homebrew/opt/openjdk"
+  "metals.javaHome": "/opt/homebrew/opt/openjdk",
+  "pyright.enable": true,
+  "pyright.disableDiagnostics": true,
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true
 }
