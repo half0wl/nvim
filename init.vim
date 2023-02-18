@@ -20,9 +20,11 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Languages (syntaxes, ...)
+Plug 'elixir-editors/vim-elixir'
 Plug 'elzr/vim-json'
 Plug 'rust-lang/rust.vim'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
 call plug#end()
 
 " -----------------------------------------------------------------------------
@@ -60,6 +62,8 @@ set shiftwidth=4
 " set foldlevel=1
 " set foldnestmax=10
 
+" Parse all HTML as Jinja templates
+autocmd BufNewFile,BufRead *.html set filetype=jinja.html
 " Filetype specific tab width
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
