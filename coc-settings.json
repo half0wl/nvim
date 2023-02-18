@@ -1,11 +1,15 @@
 {
+  "suggest.noselect": true,
   "phpactor.enable": true,
   "phpactor.path": "/usr/local/bin/phpactor",
   "metals.javaHome": "/opt/homebrew/opt/openjdk",
   "pyright.enable": true,
-  "pyright.disableDiagnostics": true,
+  "pyright.disableDiagnostics": false,
   "python.formatting.provider": "black",
   "python.linting.enabled": true,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
   "python.linting.flake8Enabled": true,
-  "python.linting.mypyEnabled": true
+  "python.linting.mypyEnabled": false,
+  "solargraph.diagnostics": true
 }
