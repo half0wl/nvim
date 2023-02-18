@@ -102,9 +102,10 @@ nnoremap <silent> K :call <SID>ShowDocumentation()<CR>
 " -----------------------------------------------------------------------------
 " Plugin configuration
 " -----------------------------------------------------------------------------
-let $FZF_DEFAULT_COMMAND = 'rg --files'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 let g:vim_json_syntax_conceal = 0
 let g:indentLine_char = '┆'
+let NERDTreeShowHidden=1
 let NERDSpaceDelims=1
 
 " Linting/completions
