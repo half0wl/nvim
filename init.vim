@@ -145,8 +145,9 @@ let g:airline_mode_map = {
   \ 't'  : 'T',
   \ }
 
-" Coc (coc-metals)
+" coc
 nnoremap <silent> <space>t :<C-u>CocCommand metals.tvp<CR>
+nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
 
 " -----------------------------------------------------------------------------
 " Definitions
