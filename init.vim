@@ -98,6 +98,8 @@ nnoremap <leader>; :NERDTreeToggle<CR>
 nnoremap <leader>h :noh<CR>
 nnoremap <leader>s :Rg<CR>
 nnoremap <leader>c :CocCommand<CR>
+nnoremap <leader>f :call CocAction('format')<CR>
+nnoremap <leader>i :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 nnoremap <silent> K :call <SID>ShowDocumentation()<CR>
 
 " -----------------------------------------------------------------------------
