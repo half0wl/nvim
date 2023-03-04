@@ -1,4 +1,6 @@
 {
+  "htmldjango.djlint.indent": 2,
+  "htmldjango.djlint.enableLint": false,
   "suggest.noselect": true,
   "phpactor.enable": true,
   "phpactor.path": "/usr/local/bin/phpactor",
