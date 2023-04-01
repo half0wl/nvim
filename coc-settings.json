@@ -12,5 +12,15 @@
   "pyright.inlayHints.variableTypes": false,
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": false,
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "inlayHint.filetypes": [],
+  "rust-analyzer.inlayHints.bindingModeHints.enable": false,
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.minLines": 25,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": false,
+  "rust-analyzer.inlayHints.discriminantHints.enable": false,
+  "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": true
 }
